@@ -1,4 +1,4 @@
-﻿namespace Test.WPF.Repositories {
+﻿namespace Test.Repositories {
 	using DbSessionQueue.Interfaces;
 	using NHibernate.Linq;
 	using NHibernate.Criterion;
@@ -7,7 +7,7 @@
 	using System.Collections.Generic;
 	using System.Linq;
 	using Test.Core.DataModel;
-	using Test.WPF.Infrastructure;
+	using Test.Infrastructure;
 	using System.Diagnostics;
 	public class Repository<T> : IRepository<T> where T : DataModelBase, new() {
 		UnitOfWork _UnitOfWork;

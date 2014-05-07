@@ -1,4 +1,4 @@
-﻿namespace Test.WPF.Infrastructure {
+﻿namespace Test.Infrastructure {
 	using DbSessionQueue.Interfaces;
 	using NHibernate;
 	using System;

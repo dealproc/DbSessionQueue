@@ -1,7 +1,7 @@
 ﻿namespace Test.Core.DataModel {
 	using System;
 	using System.ComponentModel;
-	public abstract class DataModelBase : INotifyPropertyChanged {
+	public abstract class DataModelBase : IEntity, INotifyPropertyChanged {
 		int _Id;
 		DateTime _CreatedOnUTC;
 		DateTime _UpdatedOnUTC;

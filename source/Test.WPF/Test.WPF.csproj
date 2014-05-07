@@ -7,7 +7,7 @@
     <ProjectGuid>{1E6D0164-BDF9-4588-9501-4F417E4BE338}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Test.WPF</RootNamespace>
+    <RootNamespace>Test</RootNamespace>
     <AssemblyName>Test.WPF</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -34,12 +34,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\..\packages\Autofac.3.3.1\lib\net40\Autofac.dll</HintPath>
+    </Reference>
     <Reference Include="Caliburn.Micro, Version=2.0.0.5, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Caliburn.Micro.Core.2.0.0-beta2\lib\portable-net45+win8+wp8+wpa81\Caliburn.Micro.dll</HintPath>
     </Reference>
     <Reference Include="Caliburn.Micro.Platform">
       <HintPath>..\..\packages\Caliburn.Micro.2.0.0-beta2\lib\net45\Caliburn.Micro.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentMigrator">
+      <HintPath>..\..\packages\FluentMigrator.1.1.2.1\lib\40\FluentMigrator.dll</HintPath>
     </Reference>
     <Reference Include="FluentNHibernate">
       <HintPath>..\..\packages\FluentNHibernate.1.4.0.0\lib\net35\FluentNHibernate.dll</HintPath>
@@ -72,6 +78,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Constants.cs" />
+    <Compile Include="Infrastructure\Conventions\CreatedAtPropertyAccessConvention.cs" />
+    <Compile Include="Infrastructure\Conventions\ForeignKeyConstraintNameConvention.cs" />
+    <Compile Include="Infrastructure\Conventions\ForeignKeyNameConvention.cs" />
+    <Compile Include="Infrastructure\Conventions\PrimaryKeyNameConvention.cs" />
+    <Compile Include="Infrastructure\Conventions\ReferenceConvention.cs" />
+    <Compile Include="Infrastructure\Conventions\SchemaConvention.cs" />
+    <Compile Include="Infrastructure\Conventions\StringColumnLengthConvention.cs" />
+    <Compile Include="Infrastructure\Conventions\TableNameConvention.cs" />
+    <Compile Include="Infrastructure\IoC\NHibernateConfigModule.cs" />
+    <Compile Include="Infrastructure\Mappings\AutomappingConfiguration.cs" />
+    <Compile Include="Infrastructure\Mappings\UserMapOverride.cs" />
+    <Compile Include="Infrastructure\Migrations\0100\201405071348_Create_User.cs" />
     <Compile Include="Infrastructure\Migrations\MigrationManager.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
     <Compile Include="Repositories\Repository.cs" />
@@ -128,9 +147,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Infrastructure\Conventions\" />
-    <Folder Include="Infrastructure\IoC\" />
-    <Folder Include="Infrastructure\Mappings\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Views\" />
   </ItemGroup>
