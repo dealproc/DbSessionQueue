@@ -1,9 +1,9 @@
 ﻿namespace DbSessionQueue {
 	using DbSessionQueue.Interfaces;
-	public class SaveModelCommand<TEntity, TModel> : ISessionCommand
+	public class SaveModel<TEntity, TModel> : ISessionCommand
 		where TEntity : class, new() {
 		TModel _Model;
-		public SaveModelCommand(TModel model) {
+		public SaveModel(TModel model) {
 			_Model = model;
 		}
 		public void Execute(IDependencyResolver dependencyResolver) {

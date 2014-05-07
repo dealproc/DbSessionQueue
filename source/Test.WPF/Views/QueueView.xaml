@@ -6,6 +6,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-            
+		<TextBlock>
+			<Run Text="Items in Queue" />
+			<Run Text="{Binding Path=Queue.Count}" />
+		</TextBlock>
     </Grid>
 </UserControl>

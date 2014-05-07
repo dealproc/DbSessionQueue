@@ -1,9 +1,9 @@
-﻿namespace Test.Core.Commands {
+﻿namespace DbSessionQueue {
 	using DbSessionQueue.Interfaces;
-	public class SaveEntityCommand<TEntity> : ISessionCommand
+	public class SaveEntity<TEntity> : ISessionCommand
 		where TEntity : class, new() {
 		TEntity _Entity;
-		public SaveEntityCommand(TEntity entity) {
+		public SaveEntity(TEntity entity) {
 			_Entity = entity;
 		}
 		public void Execute(IDependencyResolver dependencyResolver) {

@@ -24,11 +24,5 @@
 			Queue = queue;
 			ThreadList = threadList;
 		}
-		protected override void OnViewLoaded(object view) {
-			if (!Infrastructure.Migrations.MigrationManager.Migrate()) {
-				_WindowManager.ShowDialog(new MessageBoxViewModel { DisplayName = "Migration Failed!", Message = "Database migration failed.  We hope you have a backup." });
-				TryClose();
-			}
-		}
 	}
 }

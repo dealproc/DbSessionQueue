@@ -27,6 +27,7 @@
 			while (!_Stop) {
 				ISessionCommand cmd;
 				if (_CommandQueue.TryDequeue(out cmd)) {
+					NotifyOfPropertyChange(() => Count);
 					cmd.Execute(_DependencyResolver);
 					continue;
 				}

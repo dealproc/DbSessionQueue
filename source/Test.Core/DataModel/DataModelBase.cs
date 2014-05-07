@@ -27,7 +27,7 @@
 				FirePropertyChanged("UpdatedOnUTC");
 			}
 		}
-		public event PropertyChangedEventHandler PropertyChanged;
+		public virtual event PropertyChangedEventHandler PropertyChanged;
 		protected virtual void FirePropertyChanged(string p) {
 			var h = PropertyChanged;
 			if (h != null) {

@@ -45,7 +45,7 @@
 					SQLiteConfiguration.Standard
 					.Driver<SQLite20Driver>()
 					.Dialect<SQLiteDialect>()
-					.ConnectionString(Constants.CONNECTION_STRING)
+					.ConnectionString(Constants.CONNECTION_STRING_CREATE)
 				)
 				.ExposeConfiguration(c => c.SetProperty(NHibernate.Cfg.Environment.ReleaseConnections, "on_close"))
 				.ExposeConfiguration(c => c.SetProperty(NHibernate.Cfg.Environment.ShowSql, "false"))
