@@ -16,6 +16,7 @@
 		readonly Task _Worker;
 
 		public SessionQueue(IDependencyResolver dependencyResolver,IEventAggregator eventAggregator) {
+			_DependencyResolver = dependencyResolver;
 			_EventAggregator = eventAggregator;
 			_CommandQueue = new ConcurrentQueue<ISessionCommand>();
 			_Worker = new Task(HandleNextMessage);
@@ -48,6 +49,8 @@
 		}
 		void Dispose(bool isDisposed) {
 			if (!isDisposed) {
+				Stop();
+				_Worker.Wait();
 				GC.SuppressFinalize(this);
 			}
 			_IsDisposed = true;
