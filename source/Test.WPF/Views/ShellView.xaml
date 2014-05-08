@@ -11,9 +11,9 @@
 			<ColumnDefinition Width="3*" />
 		</Grid.ColumnDefinitions>
 
-		<ContentPresenter x:Name="Queue" Grid.Column="0" Margin="0,0,5,0" />
+		<ContentControl x:Name="Queue" Grid.Column="0" Margin="0,0,5,0" />
 		<GridSplitter Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Stretch" Width="5" />
 		
-		<ContentPresenter x:Name="ThreadList" Grid.Column="1" />
+		<ContentControl x:Name="ThreadList" Grid.Column="1" />
 	</Grid>
 </Window>

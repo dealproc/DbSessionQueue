@@ -11,13 +11,13 @@
 	public class Bootstrapper : BootstrapperBase {
 		IContainer _Container;
 		public Bootstrapper() {
+			Start();
+		}
+		protected override void OnStartup(object sender, StartupEventArgs e) {
 			if (!Infrastructure.Migrations.MigrationManager.Migrate()) {
 				MessageBox.Show("Could not migrate database.");
 				Environment.Exit(-1);
 			}
-			Start();
-		}
-		protected override void OnStartup(object sender, StartupEventArgs e) {
 			base.OnStartup(sender, e);
 			DisplayRootViewFor<ViewModels.ShellViewModel>();
 		}

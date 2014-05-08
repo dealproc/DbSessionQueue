@@ -7,7 +7,14 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-		<ListBox ItemsSource="{Binding Items}" HorizontalContentAlignment="Stretch">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="1*" />
+		</Grid.RowDefinitions>
+		<StackPanel>
+			<Button x:Name="AddThread" Content="Add Thread" />
+		</StackPanel>
+		<ListBox ItemsSource="{Binding Items}" HorizontalContentAlignment="Stretch" Grid.Row="1">
 			<ListBox.ItemTemplate>
 				<DataTemplate>
 					<local:ThreadWorkerView DataContext="{Binding}" />
