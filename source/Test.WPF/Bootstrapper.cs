@@ -45,9 +45,13 @@
 				.InstancePerLifetimeScope();
 
 			builder.RegisterAssemblyTypes(currentAssembly)
-				.Where(t => t.Name.EndsWith("ViewModel"))
+				.Where(t => t.Name.EndsWith("ViewModel") && !t.Name.Contains("Worker"))
 				.AsSelf()
 				.InstancePerLifetimeScope();
+
+			builder.RegisterType<ViewModels.ThreadWorkerViewModel>()
+				.AsSelf()
+				.InstancePerDependency();
 
 			_Container = builder.Build();
 		}

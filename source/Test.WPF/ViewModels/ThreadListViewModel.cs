@@ -7,7 +7,9 @@
 			_LifetimeScope = lifetimeScope;
 		}
 		public void AddThread() {
-			Items.Add(_LifetimeScope.Resolve<ThreadWorkerViewModel>());
+			var thread = _LifetimeScope.Resolve<ThreadWorkerViewModel>();
+			Items.Add(thread);
+			ActivateItem(thread);
 		}
 		public void RemoveThread(ThreadWorkerViewModel viewModel) {
 			DeactivateItem(viewModel, true);

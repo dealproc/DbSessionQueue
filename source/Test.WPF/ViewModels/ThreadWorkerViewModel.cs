@@ -32,6 +32,7 @@
 		}
 		protected override void OnActivate() {
 			_WorkerThread.Start();
+			base.OnActivate();
 		}
 		protected override void OnDeactivate(bool close) {
 			_WorkerThread.Abort();

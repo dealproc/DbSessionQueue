@@ -2,6 +2,7 @@
 	using Autofac;
 	using Caliburn.Micro;
 	using System;
+	using System.Diagnostics;
 	using System.Linq;
 	using System.Threading;
 	using Test.Core.Repositories.Interfaces;
@@ -34,6 +35,7 @@
 		}
 
 		void QueryQueue() {
+			Trace.WriteLine("Reading from repository");
 			while (true) {
 				using (var scope = _LifetimeScope.BeginLifetimeScope()) {
 					var repository = scope.Resolve<IUserRepository>();

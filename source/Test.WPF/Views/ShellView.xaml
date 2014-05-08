@@ -5,15 +5,19 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
+	<Grid>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="1*" MinWidth="150" />
 			<ColumnDefinition Width="3*" />
 		</Grid.ColumnDefinitions>
 
-		<ContentControl x:Name="Queue" Grid.Column="0" Margin="0,0,5,0" />
+		<StackPanel Grid.Column="0" Margin="0,0,5,0">
+			<ContentControl x:Name="ReadFromRepository" />
+			<ContentControl x:Name="Queue" />
+		</StackPanel>
+	
 		<GridSplitter Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Stretch" Width="5" />
-		
+
 		<ContentControl x:Name="ThreadList" Grid.Column="1" />
 	</Grid>
 </Window>

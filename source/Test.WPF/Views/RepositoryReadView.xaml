@@ -6,6 +6,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-            
+		<TextBlock>
+			<Run Text="Items in Repository:" />
+			<Run Text="{Binding ItemsInRepository, Mode=OneWay}" />
+		</TextBlock>
     </Grid>
 </UserControl>
