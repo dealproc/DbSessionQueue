@@ -4,6 +4,7 @@
 	using Test.Core.DataModel;
 	public class UserMapOverride : IAutoMappingOverride<User> {
 		public void Override(AutoMapping<User> mapping) {
+			mapping.HasMany(x => x.PhoneNumbers).Cascade.All();
 		}
 	}
 }

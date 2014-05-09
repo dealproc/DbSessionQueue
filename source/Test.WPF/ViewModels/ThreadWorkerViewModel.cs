@@ -5,6 +5,7 @@
 	using System.Threading;
 	using Test.Core.DataModel;
 	public class ThreadWorkerViewModel : Screen {
+		int _Interval;
 		string _InstanceId;
 		string _Message;
 		Thread _WorkerThread;
@@ -20,7 +21,14 @@
 				NotifyOfPropertyChange(() => Message);
 			}
 		}
-		
+		public int Interval {
+			get { return _Interval; }
+			set {
+				_Interval = value;
+				NotifyOfPropertyChange(() => Interval);
+			}
+		}
+
 		public ThreadWorkerViewModel(IEventAggregator eventAggregator) {
 			_EventAggregator = eventAggregator;
 
@@ -29,6 +37,9 @@
 			_WorkerThread.IsBackground = true;
 
 			_InstanceId = Guid.NewGuid().ToString();
+
+			var rand = new Random();
+			_Interval = rand.Next(10, 120);
 		}
 		protected override void OnActivate() {
 			_WorkerThread.Start();
@@ -38,7 +49,7 @@
 			_WorkerThread.Abort();
 			base.OnDeactivate(close);
 		}
-		
+
 		void Processor() {
 			while (true) {
 				var user = new User {
@@ -48,11 +59,19 @@
 					CreatedOnUTC = DateTime.UtcNow,
 					UpdatedOnUTC = DateTime.UtcNow
 				};
-				
+
+				for (var i = 0; i < 10; i++) {
+					user.PhoneNumbers.Add(new Phone {
+						Number = "610-555-1234",
+						User = user,
+						IsActive = true
+					});
+				}
+
 				_EventAggregator.PublishOnBackgroundThread(new SaveEntity<User>(user));
 				Message = string.Format("Saved User at {0}", DateTimeOffset.Now);
 
-				Thread.Sleep(TimeSpan.FromSeconds(1));
+				Thread.Sleep(TimeSpan.FromSeconds(_Interval));
 			}
 		}
 	}

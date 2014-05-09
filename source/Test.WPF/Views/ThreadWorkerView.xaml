@@ -9,10 +9,16 @@
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="3*" />
 			<ColumnDefinition Width="1*" />
+			<ColumnDefinition Width="1*" />
 		</Grid.ColumnDefinitions>
 		
 		<TextBlock Text="{Binding Message}" />
-		<Button Content="End" Grid.Column="1"
+		<TextBlock Grid.Column="1">
+			<Run Text="Interval:" />
+			<Run Text="{Binding Interval}" />
+			<Run Text="seconds." />
+		</TextBlock>
+		<Button Content="End" Grid.Column="2"
 				cal:Message.Attach="RemoveThread($dataContext)" />
     </Grid>
 </UserControl>

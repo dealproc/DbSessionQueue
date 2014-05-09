@@ -102,6 +102,7 @@
     <Compile Include="Infrastructure\Mappings\AutomappingConfiguration.cs" />
     <Compile Include="Infrastructure\Mappings\UserMapOverride.cs" />
     <Compile Include="Infrastructure\Migrations\0100\201405071348_Create_User.cs" />
+    <Compile Include="Infrastructure\Migrations\0100\201405091848_Create_Phone.cs" />
     <Compile Include="Infrastructure\Migrations\MigrationManager.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
     <Compile Include="Repositories\Repository.cs" />

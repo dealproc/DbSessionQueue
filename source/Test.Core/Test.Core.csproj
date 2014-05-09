@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="DataModel\DataModelBase.cs" />
     <Compile Include="DataModel\IEntity.cs" />
+    <Compile Include="DataModel\Phone.cs" />
     <Compile Include="DataModel\User.cs" />
     <Compile Include="Infrastructure\Migrations\IMigrationManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
