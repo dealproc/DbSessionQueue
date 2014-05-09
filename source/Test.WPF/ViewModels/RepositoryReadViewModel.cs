@@ -41,7 +41,7 @@
 					var repository = scope.Resolve<IUserRepository>();
 					ItemsInRepository = repository.GetAll().LongCount();
 				}
-				Thread.Sleep(TimeSpan.FromMilliseconds(250));
+				Thread.Sleep(TimeSpan.FromMilliseconds(500));
 			}
 		}
 	}

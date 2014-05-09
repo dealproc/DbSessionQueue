@@ -14,7 +14,7 @@
 		public Repository(UnitOfWork unitOfWork) {
 			_UnitOfWork = unitOfWork;
 		}
-		public T Get(int id) {
+		public T Get(object id) {
 			return _UnitOfWork.Session.Load<T>(id);
 		}
 		public T GetFirst(System.Linq.Expressions.Expression<Func<T, bool>> condition) {

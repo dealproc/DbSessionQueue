@@ -1,5 +1,5 @@
 ﻿namespace DbSessionQueue.Interfaces {
 	public interface ISessionCommand {
-		void Execute(IDependencyResolver dependencyResolver);
+		void Invoke(IDependencyResolver dependencyResolver);
 	}
 }

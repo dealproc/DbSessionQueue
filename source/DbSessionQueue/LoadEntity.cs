@@ -1,19 +1,19 @@
 ﻿namespace DbSessionQueue {
 	using DbSessionQueue.Interfaces;
-	public class SaveEntity<TEntity> : ISessionCommand
+	using System;
+	public class LoadEntity<TEntity> : ISessionCommand
 		where TEntity : class, new() {
-		TEntity _Entity;
-		public SaveEntity(TEntity entity) {
-			_Entity = entity;
+		object _Id;
+		Action<TEntity> _WhenCompleted;
+		public LoadEntity(object id, Action<TEntity> whenCompleted) {
+			_Id = id;
+			_WhenCompleted = whenCompleted;
 		}
 		public void Invoke(IDependencyResolver dependencyResolver) {
-			TEntity savedEntity;
 			using (var ctx = dependencyResolver.CreateContext()) {
 				var repository = ctx.Resolve<IRepository<TEntity>>();
-				savedEntity = repository.SaveOrUpdate(_Entity);
+				_WhenCompleted.Invoke(repository.Get(_Id));
 			}
-			OnCompleted(savedEntity);
 		}
-		public virtual void OnCompleted(TEntity entity) { }
 	}
 }

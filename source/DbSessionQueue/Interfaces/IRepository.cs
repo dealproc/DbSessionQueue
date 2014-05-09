@@ -4,7 +4,7 @@
 	using System.Linq;
 	using System.Linq.Expressions;
 	public interface IRepository<T> where T : class, new() {
-		T Get(int id);
+		T Get(object id);
 		T GetFirst(Expression<Func<T, bool>> condition);
 		IQueryable<T> GetBy(Expression<Func<T, bool>> condition);
 		IQueryable<T> GetAll();

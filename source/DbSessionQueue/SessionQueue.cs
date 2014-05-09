@@ -28,7 +28,7 @@
 				ISessionCommand cmd;
 				if (_CommandQueue.TryDequeue(out cmd)) {
 					NotifyOfPropertyChange(() => Count);
-					cmd.Execute(_DependencyResolver);
+					cmd.Invoke(_DependencyResolver);
 					continue;
 				}
 				Task.Delay(TimeSpan.FromMilliseconds(10)).Wait();

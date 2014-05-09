@@ -6,7 +6,7 @@
 		public SaveModel(TModel model) {
 			_Model = model;
 		}
-		public void Execute(IDependencyResolver dependencyResolver) {
+		public void Invoke(IDependencyResolver dependencyResolver) {
 			TEntity savedEntity;
 			using (var ctx = dependencyResolver.CreateContext()) {
 				var repository = ctx.Resolve<IRepository<TEntity>>();
